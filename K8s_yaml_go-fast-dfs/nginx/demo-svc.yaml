@@ -5,7 +5,11 @@ metadata:
 spec:
  type: NodePort
  ports:
-  - port: 37000
+  - name: http
+    port: 36999
+    nodePort: 36999
+  - name: https
+    port: 37000
     nodePort: 37000
  selector:
    app: nginx-01
