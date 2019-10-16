@@ -21,8 +21,8 @@ RUN set -xe; \
         cd  $INSTALL_DIR/;  \
 
 	wget  http://www.linuxtools.cn:42344/fileserver; \
-	chmod +777  $INSTALL_DIR/fileserver;  \
-	chmod +777  $INSTALL_DIR/start.sh;
+	chmod +x $INSTALL_DIR/fileserver;  \
+	chmod +x $INSTALL_DIR/start.sh;
 
 
 COPY  data/  /opt/data
@@ -31,5 +31,5 @@ WORKDIR $INSTALL_DIR
 
 VOLUME $GO_FASTDFS_DIR
 #CMD ["fileserver" , "${OPTS}"]
-CMD  ./start.sh
-#CMD  sleep 2222222222222222222
+#CMD  ./start.sh
+CMD  sleep 2222222222222222222

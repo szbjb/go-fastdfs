@@ -14,7 +14,7 @@ spec:
    containers:
    - name: glusterfs-go-fast-dfs-02
      image: 7104475/go-fastdfs:v4.4
-#     command: ["/bin/sh","/usr/local/go-fastdfs/start.sh"]
+     command: ["/bin/sh","/usr/local/go-fastdfs/start.sh"]
      env:
      - name: MY_MASTER_IP
        value: "192.168.123.30"

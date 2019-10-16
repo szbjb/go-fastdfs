@@ -11,4 +11,4 @@ sed   "s/$IP/$MY_POD_NAME.default.svc.cluster.local/g"   /usr/local/go-fastdfs/d
 sed  "s/download_domain\": \"\"/download_domain\": \"$MY_MASTER_IP:37000\"/g"  /usr/local/go-fastdfs/data/conf/cfg.json   -i
 sed   "s/peer_id\": \"$id_01\"/peer_id\": \"$id_02\"/g"   /usr/local/go-fastdfs/data/conf/cfg.json  -i
 sleep 1
-nohup ./fileserver  &
+./fileserver
