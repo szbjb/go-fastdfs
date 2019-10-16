@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: glusterfs-go-fast-dfs-03
+  annotations:
+    volume.beta.kubernetes.io/storage-class: gluster-heketi    #----------上面创建的存储类的名称
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+

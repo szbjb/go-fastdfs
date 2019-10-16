@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: glusterfs-go-fast-dfs-03
+spec:
+ replicas: 1
+ selector:
+  app: glusterfs-go-fast-dfs-03
+ template:
+  metadata:
+   labels:
+    app: glusterfs-go-fast-dfs-03
+  spec:
+   containers:
+   - name: glusterfs-go-fast-dfs-03
+     image: 7104475/go-fastdfs:v4.4
+#     command: ["/bin/sh","/usr/local/go-fastdfs/start.sh"]
+     env:
+     - name: MY_MASTER_IP
+       value: "192.168.123.30"
+     - name: PeerID
+       value: "3"
+     - name: MY_POD_NAME
+       valueFrom:
+         fieldRef:
+           fieldPath: metadata.name
+     ports:
+     - containerPort: 8080
+     volumeMounts:
+       - name: gluster-dev-volume
+         mountPath: "/usr/local/go-fastdfs/data/"
+   volumes:
+   - name: gluster-dev-volume
+     persistentVolumeClaim:
+      claimName: glusterfs-go-fast-dfs-03
